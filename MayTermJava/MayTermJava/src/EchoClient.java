@@ -5,17 +5,15 @@ public class EchoClient {
 
 	public static void main(String[] args) throws IOException {
 
-		//String hostName = InetAddress.getLocalHost().getHostAddress();
-		String hostName = "73.94.99.15";
-		//String hostName = "10.0.0.34";
+		//String hostName = "73.94.99.15";
+		String hostName = "10.0.0.34";
 		int portNumber = 6374;
 
-		try (
-				Socket echoSocket = new Socket(hostName, portNumber);
+		try (	Socket echoSocket = new Socket(hostName, portNumber);
 				PrintWriter out = new PrintWriter(echoSocket.getOutputStream(), true);
 				BufferedReader in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
-				BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in))
-				) 
+				BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+		) 
 		{
 			String input = "";
 			while (!input.equals("close")) {
